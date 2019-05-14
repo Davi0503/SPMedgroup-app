@@ -1,28 +1,30 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
+import {Container, Content, Card, CardItem, Text} from 'native-base';
 
 export default class App extends Component {
     render() {
         return (
+            <Container>
+                <Content>
+                    <Card>
+                        <CardItem header>
+                            <Text>Card Header</Text>
+                        </CardItem>
 
-            <View>
-                <TextInput
-                    placeholder="senha"
-                    underlineColorAndroid="#FFFFFF"
+                        <CardItem>
+                            <Text>
+                                //Your text here
+                            </Text>
+                        </CardItem>
 
-                />
-
-                <TextInput                    
-                    placeholder="senha"
-                    placeholderTextColor="#FFFFFF"
-                    password="true"
-                    underlineColorAndroid="#FFFFFF" />
-
-
-
-                <Text>Funcionei!</Text>
-            </View>
+                        <CardItem header>
+                            <Text>Card Footer</Text>
+                        </CardItem>
+                   </Card>                   
+                </Content>
+            </Container>
         );
     }
 }

@@ -1,47 +1,56 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Button, ImageBackground } from 'react-native';
-import { TextInput, BaseButton } from 'react-native-gesture-handler';
+import { StyleSheet, TextInput, Text, View, Button, ImageBackground, Image } from 'react-native';
+import api from '../services/API.js'
 
 class Login extends Component {
+    static navigationOptions = {
+        header: null
+    };
 
 
+    constructor(props) {
+        super(props);
+        this.state = { Email: "", Senha: "" };
+    }
 
-
-
-
+    _realizaLogin() {
+        console.warn("lista");
+    }
 
     render() {
         return (
             <ImageBackground
-
-
-
-                source={require("../assets/img/loginback.jpg")}
+                source={require("../assets/img/background.jpg")}
                 style={StyleSheet.absoluteFillObject}
             >
                 <View style={style.overlay} />
                 <View style={style.main}>
-                    <TextInput
-                        placeholder="Email"
-                        underlineColorAndroid="#16ca8f"
-                        style={style.inputLogin}
+                    <Image
+                        source={require("../assets/img/icon-login.png")}
+                        style={style.logo}
+                    ></Image>
+                    <View style={style.inputs}>
+                        <TextInput
+                            placeholder="Email"
+                            underlineColorAndroid="#17cf91"
+                            style={style.inputLogin}
+                            placeholderTextColor="#baf7e3"
+                            TextColor="#17cf91"
+                        />
 
-                    />
-
-                    <TextInput
-                        style={style.inputLogin}
-                        placeholder="Senha"
-                        password="true"
-                        underlineColorAndroid="#16ca8f"
-                    />
-
-
-                    <Button
-                        title="Login"
-                        color="#16ca8f"
-                    />
-
-
+                        <TextInput
+                            style={style.inputLogin}
+                            placeholder="Senha"
+                            underlineColorAndroid="#17cf91"
+                            placeholderTextColor="#baf7e3"
+                            secureTextEntry={true}
+                        />
+                        <Button
+                            title="Login"
+                            color="#17cf91"
+                            onPress={() => this.props.navigation.navigate("lista")}
+                        />
+                    </View>
 
                 </View>
             </ImageBackground>
@@ -54,25 +63,37 @@ class Login extends Component {
 const style = StyleSheet.create({
     overlay: {
         ...StyleSheet.absoluteFillObject,
-        backgroundColor: "rgba(22, 202, 143, 0.29)"
+        backgroundColor: "rgba(19, 10, 143, 0.59)"
     },
     main: {
         width: "100%",
         height: "100%",
         justifyContent: "center",
         alignContent: "center",
-        alignItems: "center"
+        alignItems: "center",
+        marginTop: -50
+
     },
     inputLogin: {
+        marginTop: 10,
         width: 340,
         marginBottom: 20,
         fontSize: 10,
+        color: "#17cf91"
 
     },
 
-    btnLogin: {
-
-    }
+    logo: {
+        width: 150,
+        height: 160
+    },
+    inputs: {
+        marginTop: 60,
+        width: "80%",
+        justifyContent: "center",
+        alignContent: "center",
+        alignItems: "center",
+    },
 });
 
 export default Login;
