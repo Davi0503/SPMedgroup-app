@@ -5,13 +5,17 @@ import {
     createSwitchNavigator
 } from "react-navigation";
 
-import batatinha from './pages/batatinha.js';
+import Login from './pages/Login.js';
+import Lista from './pages/Lista.js';
 
-const AuthStack = createStackNavigator({ batatinha });
+const AuthStack = createStackNavigator({ Login });
+
+const lista = createStackNavigator({Lista});
 
 export default createAppContainer(
     createSwitchNavigator(
         {
+            lista,
             AuthStack
         },
         {
