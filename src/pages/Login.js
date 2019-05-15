@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, TextInput, Text, View, Button, ImageBackground, Image } from 'react-native';
+import { StyleSheet, TextInput, Text, View, Button, ImageBackground, Image, StatusBar } from 'react-native';
 import api from '../services/API.js'
 
 class Login extends Component {
@@ -18,13 +18,17 @@ class Login extends Component {
     }
 
     render() {
-        return (
+        return (            
+            
             <ImageBackground
                 source={require("../assets/img/background.jpg")}
                 style={StyleSheet.absoluteFillObject}
             >
                 <View style={style.overlay} />
+                <StatusBar
+                backgroundColor="rgb(19, 10, 143)"></StatusBar>
                 <View style={style.main}>
+                
                     <Image
                         source={require("../assets/img/icon-login.png")}
                         style={style.logo}
@@ -36,6 +40,7 @@ class Login extends Component {
                             style={style.inputLogin}
                             placeholderTextColor="#baf7e3"
                             TextColor="#17cf91"
+                            
                         />
 
                         <TextInput
@@ -45,11 +50,13 @@ class Login extends Component {
                             placeholderTextColor="#baf7e3"
                             secureTextEntry={true}
                         />
+                      
                         <Button
                             title="Login"
                             color="#17cf91"
                             onPress={() => this.props.navigation.navigate("lista")}
                         />
+                        
                     </View>
 
                 </View>
@@ -76,9 +83,9 @@ const style = StyleSheet.create({
     },
     inputLogin: {
         marginTop: 10,
-        width: 340,
+        width: "100%",
         marginBottom: 20,
-        fontSize: 10,
+        fontSize: 15,
         color: "#17cf91"
 
     },
