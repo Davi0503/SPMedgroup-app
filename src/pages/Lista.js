@@ -7,9 +7,9 @@ import { AccordionList } from "accordion-collapse-react-native";
 
 
 export default class App extends Component {
-  static navigationOptions = {
-    header: null    
-};
+//   static navigationOptions = {
+//     header: null    
+// };
 
 
   constructor(props) {    
@@ -33,7 +33,7 @@ export default class App extends Component {
 
   _head(item) {
     return (
-      <Separator bordered style={{ alignItems: 'center' }}>
+      <Separator bordered style={{ alignItems: 'center', borderRadius: 5 }}>
         <Text>{item.title}</Text>
       </Separator>
     );
@@ -51,7 +51,9 @@ export default class App extends Component {
       <View style={style.main}>
         <View style={style.list}>
           <AccordionList
+          
             list={this.state.list}
+          
             header={this._head}
             body={this._body}
           />
@@ -71,16 +73,20 @@ const style = StyleSheet.create({
     alignContent: "center",
     alignItems: "center",
     marginTop: -50,
+    paddingTop: 70,
     backgroundColor: "rgba(19, 10, 143, 0.90)"
   },
   list:{
     width: "80%",
-    height: "100%",
-    justifyContent: "center"
+    height: "100%",    
   },
+
   color:{
     backgroundColor: "#17cf91",
-    padding: 10
+    padding: 10,
+    width: "100%",
+    alignItems: "center",
+    borderRadius: 5
   }
 
 })
